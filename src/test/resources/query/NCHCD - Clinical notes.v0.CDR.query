@@ -1,0 +1,47 @@
+# templateId:NCHCD - Clinical notes.v0
+# created on:2017-05-30T09:53:10.810+07:00
+# Creation mode:REQUIRED_FIELDS_ONLY
+#
+query cdr ($composition_id: [String]) {
+	composition (id:$composition_id)
+	{
+		openEHR_EHR_EVALUATION_clinical_synopsis_v1_clinical_synopsis: content(archetype_node_id:"openEHR-EHR-EVALUATION.clinical_synopsis.v1")
+		{
+			... on EVALUATION
+			{
+
+				data
+				{
+					... on ITEM_TREE
+					{
+						at0002: items(archetype_node_id:"at0002")
+						{
+							... on ELEMENT
+							{
+								value
+								{
+									... on DV_TEXT
+									{
+										value
+									}
+									... on DV_CODED_TEXT
+									{
+										value
+										defining_code
+										{
+											terminology_id
+											{
+												value
+											}
+											code_string
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

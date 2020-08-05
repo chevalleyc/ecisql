@@ -1,0 +1,20 @@
+# templateId:NCHCD - Clinical notes.v0
+# created on:2017-05-30T09:53:10.810+07:00
+# Creation mode:REQUIRED_FIELDS_ONLY
+#
+query cdr ($ehr_id: [String])
+{
+	ehr (id:$ehr_id)
+	{
+		system_id {
+			value
+		}
+		ehr_status {
+			subject {
+				namespace
+				id
+			}
+		}
+	}
+}
+
